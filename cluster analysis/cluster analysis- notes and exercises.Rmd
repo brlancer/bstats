@@ -1,0 +1,34 @@
+---
+title: 'Cluster Analysis: Notes and Exercises'
+author: "Brian Lance"
+date: "August 16, 2016"
+output: 
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Intro
+
+I'm reading R in Action (2nd edition), by Robert Kabacoff, to fill out my data analysis toolkit. This document contains my notes on cluster analysis from chapter 16.
+
+## Random example
+
+Because it's always fun to watch R do stuff before you really understand what's going on.
+
+```{r airline_distances_cluster}
+library(cluster.datasets)
+# prep data
+data("airline.distances.1966")
+d <- airline.distances.1966
+d <- d[,-1] # remove column containing city codes
+d <- as.dist(d) # convert to distance matrix
+# run single linkage cluster algorithm
+fit.single <- hclust(d, method = "single")
+plot(fit.single, hang=-1, cex=0.8, main="Single-Linkage Clustering")
+```
+
