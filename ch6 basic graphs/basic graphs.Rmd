@@ -1,0 +1,50 @@
+---
+title: 'Chapter 6: Basic Graphs'
+output: 
+  github_document:
+    toc: true
+    toc_depth: 2
+    fig_width: 5
+    fig_height: 5
+    dev: jpeg
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = F)
+```
+
+# Intro
+
+# Bar plots
+
+## Simple bar plots
+
+Barplots are for displaying frequencies. Let's create a frequency table of `Arthritis$Improved`
+
+The basic barplot. Lovely.
+
+```{r bar}
+library(vcd)
+counts <- table(Arthritis$Improved)
+barplot(counts,
+        main="Simple Bar Plot",
+        xlab="Improvement", ylab="Frequency")
+```
+
+Let's flip it.
+
+```{r bar_horiz}
+barplot(counts,
+        horiz=TRUE,
+        main="Horizontal Bar Plot",
+        xlab="Frequency", ylab="Improvement")
+```
+
+If we pass a matrix instead of a vector, we can produce stacked or grouped barplots.
+
+```{r bar_stacked}
+counts <- table(Arthritis$Improved, Arthritis$Treatment)
+```
+

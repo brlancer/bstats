@@ -1,5 +1,5 @@
 ---
-title: 'Cluster Analysis: Notes and Exercises'
+title: 'Chapter 16: Cluster Analysis'
 author: "Brian Lance"
 date: "August 16, 2016"
 output: 
