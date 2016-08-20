@@ -25,9 +25,16 @@ Barplots are for displaying frequencies. Let's create a frequency table of `Arth
 
 The basic barplot. Lovely.
 
-```{r bar}
+```{r count}
+# Load library containing Arthritis dataset
 library(vcd)
+# Create freq table of values in Improved
 counts <- table(Arthritis$Improved)
+counts
+```
+
+```{r bar}
+# Plot counts
 barplot(counts,
         main="Simple Bar Plot",
         xlab="Improvement", ylab="Frequency")
@@ -37,6 +44,7 @@ Let's flip it.
 
 ```{r bar_horiz}
 barplot(counts,
+        # Flip it
         horiz=TRUE,
         main="Horizontal Bar Plot",
         xlab="Frequency", ylab="Improvement")
@@ -44,7 +52,30 @@ barplot(counts,
 
 If we pass a matrix instead of a vector, we can produce stacked or grouped barplots.
 
-```{r bar_stacked}
+```{r count_two_way}
+# Create 2-way freq table for Improved and Treatment
 counts <- table(Arthritis$Improved, Arthritis$Treatment)
+counts
+```
+
+Stacked.
+
+```{r bar_stacked}
+# Plot Improvement by Treatment
+barplot(counts,
+        main="Stacked Bar Plot",
+        xlab="Treatment", ylab="Frequency",
+        col=c("red","yellow","green"),
+        legend=rownames(counts))
+```
+
+Grouped.
+
+```{r bar_grouped}
+barplot(counts,
+        main="Grouped Bar Plot",
+        xlab="Treatment", ylab="Frequency",
+        col=c("red","yellow","green"),
+        legend=rownames(counts), beside=TRUE)
 ```
 
